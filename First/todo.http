@@ -1,0 +1,33 @@
+### 新增 Todo
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+  "title": "学习 Spring Boot"
+}
+
+### 查询全部
+GET http://localhost:8080/api/todos
+
+
+###
+# curl -X DELETE http://localhost:8080/api/todos/1
+DELETE http://localhost:8080/api/todos/1
+
+###
+
+
+# curl -X PUT http://localhost:8080/api/todos/1
+#  -H "Content-Type: application/json"
+#  -d '{"title":"学习 Spring Boot 第1周","completed":true}'
+PUT http://localhost:8080/api/todos/2
+Content-Type: application/json
+
+{
+  "title": "学习 Spring Boot 第1周",
+  "completed": true
+}
+
+###
+
+GET http://localhost:8080/api/todos?completed=true
