@@ -1,0 +1,72 @@
+### 1. 查询全部（默认分页：page=0, size=10）
+GET http://localhost:8080/api/todos
+
+### 2. 分页查询（第0页，每页5条）
+GET http://localhost:8080/api/todos?page=0&size=5
+
+### 3. 按完成状态过滤：只看已完成的
+GET http://localhost:8080/api/todos?completed=true
+
+### 4. 按完成状态过滤：只看未完成的
+GET http://localhost:8080/api/todos?completed=false
+
+### 5. 新增 Todo
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+  "title": "学习第5周日志"
+}
+
+### 6. 新增第二条
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+  "title": "写单元测试"
+}
+
+### 7. 新增第三条
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+  "title": "打包成 jar"
+}
+
+### 8. 查询单个（存在的 id）
+GET http://localhost:8080/api/todos/1
+
+### 9. 查询单个（不存在的 id，会触发 404）
+GET http://localhost:8080/api/todos/9999
+
+### 10. 更新 Todo
+PUT http://localhost:8080/api/todos/1
+Content-Type: application/json
+
+{
+  "title": "学习第5周日志（已更新）",
+  "completed": true
+}
+
+### 11. 切换完成状态
+PATCH http://localhost:8080/api/todos/1/toggle
+
+### 12. 删除 Todo
+DELETE http://localhost:8080/api/todos/2
+
+### 13. 参数校验：title 为空（触发 400）
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+  "title": ""
+}
+
+### 14. 参数校验：title 超过100字（触发 400）
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+  "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}

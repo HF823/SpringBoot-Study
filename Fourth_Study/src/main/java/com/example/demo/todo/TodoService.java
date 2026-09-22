@@ -2,6 +2,8 @@ package com.example.demo.todo;
 
 import com.example.demo.common.BusinessException;
 import com.example.demo.common.ErrorCode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -12,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class TodoService {
 
+    private static final Logger log = LoggerFactory.getLogger(TodoService.class);
+
     private final TodoRepository repository;
     private final TodoProperties properties;
 
@@ -21,9 +25,9 @@ public class TodoService {
     }
 
     public Page<Todo> list(Boolean completed, int page, int size) {
+        log.debug("查询 Todo 列表，completed = {}, page = {}, size = {}", completed, page, size);
         if (size > 100) size = 100;
-        PageRequest pageable = PageRequest.of(page, size,
-                Sort.by(Sort.Direction.DESC, "id"));
+        PageRequest pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"));
         if (completed == null) {
             return repository.findAll(pageable);
         }
@@ -31,24 +35,34 @@ public class TodoService {
     }
 
     public Todo getById(Long id) {
+        log.debug("查询 Todo，id = {}", id);
         return repository.findById(id)
-                .orElseThrow(() -> new TodoNotFoundException(id));
+                .orElseThrow(() -> {
+                    log.warn("Todo 不存在，id = {}", id);
+                    return new TodoNotFoundException(id);
+                });
     }
 
     @Transactional
     public Todo create(CreateTodoRequest request) {
+        log.info("创建 Todo，title = {}", request.title());
         if (repository.count() >= properties.getMaxSize()) {
+            log.warn("Todo 数量已达上限，当前 = {}, 上限 = {}",
+                    repository.count(), properties.getMaxSize());
             throw new BusinessException(ErrorCode.CONFLICT,
                     "Todo 数量已达上限：" + properties.getMaxSize());
         }
         Todo todo = new Todo();
         todo.setTitle(request.title());
         todo.setCompleted(properties.isDefaultCompleted());
-        return repository.save(todo);
+        Todo saved = repository.save(todo);
+        log.info("创建 Todo 成功，id = {}", saved.getId());
+        return saved;
     }
 
     @Transactional
     public Todo update(Long id, UpdateTodoRequest request) {
+        log.info("更新 Todo，id = {}", id);
         Todo todo = getById(id);
         todo.setTitle(request.title());
         todo.setCompleted(request.completed());
@@ -57,6 +71,7 @@ public class TodoService {
 
     @Transactional
     public Todo toggle(Long id) {
+        log.info("切换 Todo 状态，id = {}", id);
         Todo todo = getById(id);
         todo.setCompleted(!todo.isCompleted());
         return repository.save(todo);
@@ -64,7 +79,9 @@ public class TodoService {
 
     @Transactional
     public void delete(Long id) {
+        log.info("删除 Todo，id = {}", id);
         if (!repository.existsById(id)) {
+            log.warn("删除失败，Todo 不存在，id = {}", id);
             throw new TodoNotFoundException(id);
         }
         repository.deleteById(id);

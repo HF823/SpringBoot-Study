@@ -1,0 +1,316 @@
+2026-09-22 23:29:17.676 [main] INFO  c.e.demo.FourthStudyApplication - Starting FourthStudyApplication using Java 25.0.2 with PID 50404 (E:\Java\Deepseek_Learn_SpringBoot\Fourth_Study\target\classes started by Lenovo in E:\Java\Deepseek_Learn_SpringBoot)
+2026-09-22 23:29:17.678 [main] DEBUG c.e.demo.FourthStudyApplication - Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-09-22 23:29:17.679 [main] INFO  c.e.demo.FourthStudyApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-22 23:29:18.261 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-22 23:29:18.295 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 1 JPA repository interface.
+2026-09-22 23:29:18.788 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-09-22 23:29:18.801 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-09-22 23:29:18.801 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-09-22 23:29:18.847 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1135 ms
+2026-09-22 23:29:18.986 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-22 23:29:19.023 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-09-22 23:29:19.367 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-22 23:29:19.394 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-09-22 23:29:19.592 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d6d683e
+2026-09-22 23:29:19.595 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-09-22 23:29:19.665 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/demo?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.46
+	Default catalog/schema: demo/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-22 23:29:20.310 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-22 23:29:20.377 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-22 23:29:20.475 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-22 23:29:20.720 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-22 23:29:21.127 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-09-22 23:29:21.131 [main] INFO  c.e.demo.FourthStudyApplication - Started FourthStudyApplication in 3.779 seconds (process running for 4.313)
+2026-09-22 23:29:21.133 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-22 23:29:21.133 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-22 23:29:26.237 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-22 23:29:26.237 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-09-22 23:29:26.238 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-09-22 23:29:26.263 [http-nio-8080-exec-1] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.getById(..)，参数：[1]
+2026-09-22 23:29:26.269 [http-nio-8080-exec-1] DEBUG com.example.demo.todo.TodoService - 查询 Todo，id = 1
+2026-09-22 23:29:26.288 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.completed,
+        t1_0.created_at,
+        t1_0.title 
+    from
+        todo t1_0 
+    where
+        t1_0.id=?
+2026-09-22 23:29:26.309 [http-nio-8080-exec-1] INFO  com.example.demo.config.LogAspect - 请求结束：TodoController.getById(..)，耗时：46ms
+2026-09-22 23:29:54.844 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-22 23:29:54.852 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-09-22 23:29:54.856 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-22 23:29:54.857 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-09-22 23:29:54.863 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-09-22 23:29:56.705 [main] INFO  c.e.demo.FourthStudyApplication - Starting FourthStudyApplication using Java 25.0.2 with PID 63840 (E:\Java\Deepseek_Learn_SpringBoot\Fourth_Study\target\classes started by Lenovo in E:\Java\Deepseek_Learn_SpringBoot)
+2026-09-22 23:29:56.707 [main] DEBUG c.e.demo.FourthStudyApplication - Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-09-22 23:29:56.707 [main] INFO  c.e.demo.FourthStudyApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-22 23:29:57.278 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-22 23:29:57.315 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 1 JPA repository interface.
+2026-09-22 23:29:57.747 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-09-22 23:29:57.757 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-09-22 23:29:57.758 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-09-22 23:29:57.799 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1061 ms
+2026-09-22 23:29:57.935 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-22 23:29:57.971 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-09-22 23:29:58.261 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-22 23:29:58.284 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-09-22 23:29:58.391 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b3b1124
+2026-09-22 23:29:58.392 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-09-22 23:29:58.453 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/demo?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.46
+	Default catalog/schema: demo/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-22 23:29:59.108 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-22 23:29:59.165 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-22 23:29:59.256 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-22 23:29:59.482 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-22 23:29:59.902 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-09-22 23:29:59.912 [main] INFO  c.e.demo.FourthStudyApplication - Started FourthStudyApplication in 3.497 seconds (process running for 4.011)
+2026-09-22 23:29:59.915 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-22 23:29:59.915 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-22 23:30:07.004 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-22 23:30:07.004 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-09-22 23:30:07.004 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-09-22 23:30:07.036 [http-nio-8080-exec-1] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.getById(..)，参数：[1]
+2026-09-22 23:30:07.045 [http-nio-8080-exec-1] DEBUG com.example.demo.todo.TodoService - 查询 Todo，id = 1
+2026-09-22 23:30:07.066 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.completed,
+        t1_0.created_at,
+        t1_0.title 
+    from
+        todo t1_0 
+    where
+        t1_0.id=?
+2026-09-22 23:30:07.091 [http-nio-8080-exec-1] INFO  com.example.demo.config.LogAspect - 请求结束：TodoController.getById(..)，耗时：55ms
+2026-09-22 23:31:15.209 [http-nio-8080-exec-3] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.delete(..)，参数：[1]
+2026-09-22 23:31:15.210 [http-nio-8080-exec-3] INFO  com.example.demo.todo.TodoService - 删除 Todo，id = 1
+2026-09-22 23:31:15.493 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        todo t1_0 
+    where
+        t1_0.id=?
+2026-09-22 23:31:15.496 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.completed,
+        t1_0.created_at,
+        t1_0.title 
+    from
+        todo t1_0 
+    where
+        t1_0.id=?
+2026-09-22 23:31:15.514 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        todo 
+    where
+        id=?
+2026-09-22 23:31:15.531 [http-nio-8080-exec-3] INFO  com.example.demo.config.LogAspect - 请求结束：TodoController.delete(..)，耗时：322ms
+2026-09-22 23:31:26.678 [http-nio-8080-exec-4] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.delete(..)，参数：[1]
+2026-09-22 23:31:26.679 [http-nio-8080-exec-4] INFO  com.example.demo.todo.TodoService - 删除 Todo，id = 1
+2026-09-22 23:31:26.681 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        todo t1_0 
+    where
+        t1_0.id=?
+2026-09-22 23:31:26.683 [http-nio-8080-exec-4] WARN  com.example.demo.todo.TodoService - 删除失败，Todo 不存在，id = 1
+2026-09-22 23:31:26.686 [http-nio-8080-exec-4] ERROR com.example.demo.config.LogAspect - 请求异常：TodoController.delete(..)，消息：Todo 不存在，id = 1
+2026-09-22 23:31:26.688 [http-nio-8080-exec-4] WARN  c.e.d.common.GlobalExceptionHandler - 业务异常：Todo 不存在，id = 1
+2026-09-22 23:31:39.528 [http-nio-8080-exec-5] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.update(..)，参数：[1, UpdateTodoRequest[title=学习分层与注入, completed=true]]
+2026-09-22 23:31:39.529 [http-nio-8080-exec-5] INFO  com.example.demo.todo.TodoService - 更新 Todo，id = 1
+2026-09-22 23:31:39.529 [http-nio-8080-exec-5] DEBUG com.example.demo.todo.TodoService - 查询 Todo，id = 1
+2026-09-22 23:31:39.529 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.completed,
+        t1_0.created_at,
+        t1_0.title 
+    from
+        todo t1_0 
+    where
+        t1_0.id=?
+2026-09-22 23:31:39.530 [http-nio-8080-exec-5] WARN  com.example.demo.todo.TodoService - Todo 不存在，id = 1
+2026-09-22 23:31:39.531 [http-nio-8080-exec-5] ERROR com.example.demo.config.LogAspect - 请求异常：TodoController.update(..)，消息：Todo 不存在，id = 1
+2026-09-22 23:31:39.531 [http-nio-8080-exec-5] WARN  c.e.d.common.GlobalExceptionHandler - 业务异常：Todo 不存在，id = 1
+2026-09-22 23:31:41.725 [http-nio-8080-exec-6] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.update(..)，参数：[1, UpdateTodoRequest[title=学习分层与注入, completed=true]]
+2026-09-22 23:31:41.726 [http-nio-8080-exec-6] INFO  com.example.demo.todo.TodoService - 更新 Todo，id = 1
+2026-09-22 23:31:41.726 [http-nio-8080-exec-6] DEBUG com.example.demo.todo.TodoService - 查询 Todo，id = 1
+2026-09-22 23:31:41.727 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.completed,
+        t1_0.created_at,
+        t1_0.title 
+    from
+        todo t1_0 
+    where
+        t1_0.id=?
+2026-09-22 23:31:41.728 [http-nio-8080-exec-6] WARN  com.example.demo.todo.TodoService - Todo 不存在，id = 1
+2026-09-22 23:31:41.729 [http-nio-8080-exec-6] ERROR com.example.demo.config.LogAspect - 请求异常：TodoController.update(..)，消息：Todo 不存在，id = 1
+2026-09-22 23:31:41.729 [http-nio-8080-exec-6] WARN  c.e.d.common.GlobalExceptionHandler - 业务异常：Todo 不存在，id = 1
+2026-09-22 23:31:44.656 [http-nio-8080-exec-7] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.update(..)，参数：[1, UpdateTodoRequest[title=学习分层与注入, completed=true]]
+2026-09-22 23:31:44.657 [http-nio-8080-exec-7] INFO  com.example.demo.todo.TodoService - 更新 Todo，id = 1
+2026-09-22 23:31:44.658 [http-nio-8080-exec-7] DEBUG com.example.demo.todo.TodoService - 查询 Todo，id = 1
+2026-09-22 23:31:44.658 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.completed,
+        t1_0.created_at,
+        t1_0.title 
+    from
+        todo t1_0 
+    where
+        t1_0.id=?
+2026-09-22 23:31:44.659 [http-nio-8080-exec-7] WARN  com.example.demo.todo.TodoService - Todo 不存在，id = 1
+2026-09-22 23:31:44.660 [http-nio-8080-exec-7] ERROR com.example.demo.config.LogAspect - 请求异常：TodoController.update(..)，消息：Todo 不存在，id = 1
+2026-09-22 23:31:44.660 [http-nio-8080-exec-7] WARN  c.e.d.common.GlobalExceptionHandler - 业务异常：Todo 不存在，id = 1
+2026-09-22 23:32:15.178 [http-nio-8080-exec-9] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.getById(..)，参数：[1]
+2026-09-22 23:32:15.180 [http-nio-8080-exec-9] DEBUG com.example.demo.todo.TodoService - 查询 Todo，id = 1
+2026-09-22 23:32:15.181 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.completed,
+        t1_0.created_at,
+        t1_0.title 
+    from
+        todo t1_0 
+    where
+        t1_0.id=?
+2026-09-22 23:32:15.182 [http-nio-8080-exec-9] WARN  com.example.demo.todo.TodoService - Todo 不存在，id = 1
+2026-09-22 23:32:15.182 [http-nio-8080-exec-9] ERROR com.example.demo.config.LogAspect - 请求异常：TodoController.getById(..)，消息：Todo 不存在，id = 1
+2026-09-22 23:32:15.183 [http-nio-8080-exec-9] WARN  c.e.d.common.GlobalExceptionHandler - 业务异常：Todo 不存在，id = 1
+2026-09-22 23:32:35.463 [http-nio-8080-exec-10] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.list(..)，参数：[null, 0, 10]
+2026-09-22 23:32:35.464 [http-nio-8080-exec-10] DEBUG com.example.demo.todo.TodoService - 查询 Todo 列表，completed = null, page = 0, size = 10
+2026-09-22 23:32:35.483 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.completed,
+        t1_0.created_at,
+        t1_0.title 
+    from
+        todo t1_0 
+    order by
+        t1_0.id desc 
+    limit
+        ?, ?
+2026-09-22 23:32:35.487 [http-nio-8080-exec-10] INFO  com.example.demo.config.LogAspect - 请求结束：TodoController.list(..)，耗时：24ms
+2026-09-22 23:32:35.491 [http-nio-8080-exec-10] WARN  o.s.d.w.c.SpringDataJackson3Configuration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-09-22 23:33:00.449 [http-nio-8080-exec-1] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.create(..)，参数：[CreateTodoRequest[title=学习第5周日志]]
+2026-09-22 23:33:00.450 [http-nio-8080-exec-1] INFO  com.example.demo.todo.TodoService - 创建 Todo，title = 学习第5周日志
+2026-09-22 23:33:00.451 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        todo t1_0
+2026-09-22 23:33:00.466 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        todo
+        (completed, created_at, title) 
+    values
+        (?, ?, ?)
+2026-09-22 23:33:00.475 [http-nio-8080-exec-1] INFO  com.example.demo.todo.TodoService - 创建 Todo 成功，id = 3
+2026-09-22 23:33:00.480 [http-nio-8080-exec-1] INFO  com.example.demo.config.LogAspect - 请求结束：TodoController.create(..)，耗时：32ms
+2026-09-22 23:33:02.342 [http-nio-8080-exec-2] INFO  com.example.demo.config.LogAspect - 请求开始：TodoController.create(..)，参数：[CreateTodoRequest[title=学习第5周日志]]
+2026-09-22 23:33:02.344 [http-nio-8080-exec-2] INFO  com.example.demo.todo.TodoService - 创建 Todo，title = 学习第5周日志
+2026-09-22 23:33:02.344 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        todo t1_0
+2026-09-22 23:33:02.345 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        todo
+        (completed, created_at, title) 
+    values
+        (?, ?, ?)
+2026-09-22 23:33:02.347 [http-nio-8080-exec-2] INFO  com.example.demo.todo.TodoService - 创建 Todo 成功，id = 4
+2026-09-22 23:33:02.353 [http-nio-8080-exec-2] INFO  com.example.demo.config.LogAspect - 请求结束：TodoController.create(..)，耗时：11ms
+2026-09-22 23:33:08.768 [main] INFO  c.e.demo.FourthStudyApplication - Starting FourthStudyApplication using Java 25.0.2 with PID 60148 (E:\Java\Deepseek_Learn_SpringBoot\Fourth_Study\target\classes started by Lenovo in E:\Java\Deepseek_Learn_SpringBoot)
+2026-09-22 23:33:08.770 [main] DEBUG c.e.demo.FourthStudyApplication - Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-09-22 23:33:08.771 [main] INFO  c.e.demo.FourthStudyApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-22 23:33:09.321 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-22 23:33:09.358 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 1 JPA repository interface.
+2026-09-22 23:33:09.799 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-09-22 23:33:09.810 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-09-22 23:33:09.810 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-09-22 23:33:09.856 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1056 ms
+2026-09-22 23:33:09.990 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-22 23:33:10.028 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-09-22 23:33:10.340 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-22 23:33:10.364 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-09-22 23:33:10.474 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@707f4647
+2026-09-22 23:33:10.475 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-09-22 23:33:10.536 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/demo?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.46
+	Default catalog/schema: demo/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-22 23:33:11.168 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-22 23:33:11.236 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-22 23:33:11.332 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-22 23:33:11.560 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-22 23:33:11.941 [main] WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-09-22 23:33:11.943 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-22 23:33:11.944 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-09-22 23:33:11.950 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-09-22 23:33:11.963 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-09-22 23:33:11.973 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2026-09-22 23:33:15.474 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-22 23:33:15.481 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-09-22 23:33:15.484 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-22 23:33:15.486 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-09-22 23:33:15.491 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
