@@ -1,0 +1,28 @@
+### 查询全部
+GET http://localhost:8080/api/todos
+
+### 新增
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+  "title": "学习分层"
+}
+
+### 查询单个
+GET http://localhost:8080/api/todos/1
+
+### 修改
+PUT http://localhost:8080/api/todos/1
+Content-Type: application/json
+
+{
+  "title": "学习分层与注入",
+  "completed": true
+}
+
+### 切换状态
+PATCH http://localhost:8080/api/todos/1/toggle
+
+### 删除
+DELETE http://localhost:8080/api/todos/1
