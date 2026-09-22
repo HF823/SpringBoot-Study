@@ -1,7 +1,11 @@
 package com.example.demo.todo;
 
-public class TodoNotFoundException extends RuntimeException{
-    public TodoNotFoundException(Long id){
-        super("Todo 不存在，id = "+id);
+import com.example.demo.common.BusinessException;
+import com.example.demo.common.ErrorCode;
+
+public class TodoNotFoundException extends BusinessException {
+
+    public TodoNotFoundException(Long id) {
+        super(ErrorCode.NOT_FOUND, "Todo 不存在，id = " + id);
     }
 }

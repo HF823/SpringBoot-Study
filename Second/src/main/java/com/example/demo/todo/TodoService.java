@@ -1,5 +1,7 @@
 package com.example.demo.todo;
 
+import com.example.demo.common.BusinessException;
+import com.example.demo.common.ErrorCode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +18,7 @@ public class TodoService {
     }
 
     public List<Todo> list(Boolean completed){
-        if(completed=null){
+        if(completed==null){
             return repository.findAll();
         }
         return repository.findByCompleted(completed);
@@ -29,7 +31,8 @@ public class TodoService {
 
     public Todo create(CreateTodoRequest request) {
         if (repository.count() >= properties.getMaxSize()) {
-            throw new IllegalStateException("Todo 数量已达上限：" + properties.getMaxSize());
+            throw new BusinessException(ErrorCode.CONFLICT,
+                    "Todo 数量已达上限：" + properties.getMaxSize());
         }
         Todo todo = new Todo();
         todo.setTitle(request.title());
