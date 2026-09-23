@@ -4,6 +4,9 @@ import com.example.demo.common.BusinessException;
 import com.example.demo.common.ErrorCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -34,13 +37,10 @@ public class TodoService {
         return repository.findByCompleted(completed, pageable);
     }
 
+    @Cacheable(value = "todo", key = "#id")
     public Todo getById(Long id) {
-        log.debug("查询 Todo，id = {}", id);
         return repository.findById(id)
-                .orElseThrow(() -> {
-                    log.warn("Todo 不存在，id = {}", id);
-                    return new TodoNotFoundException(id);
-                });
+                .orElseThrow(() -> new TodoNotFoundException(id));
     }
 
     @Transactional
@@ -60,9 +60,9 @@ public class TodoService {
         return saved;
     }
 
+    @CachePut(value = "todo", key = "#id")
     @Transactional
     public Todo update(Long id, UpdateTodoRequest request) {
-        log.info("更新 Todo，id = {}", id);
         Todo todo = getById(id);
         todo.setTitle(request.title());
         todo.setCompleted(request.completed());
@@ -77,13 +77,14 @@ public class TodoService {
         return repository.save(todo);
     }
 
+    @CacheEvict(value = "todo", key = "#id")
     @Transactional
     public void delete(Long id) {
-        log.info("删除 Todo，id = {}", id);
         if (!repository.existsById(id)) {
-            log.warn("删除失败，Todo 不存在，id = {}", id);
             throw new TodoNotFoundException(id);
         }
         repository.deleteById(id);
     }
+
+
 }

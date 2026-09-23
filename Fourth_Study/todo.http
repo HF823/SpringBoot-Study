@@ -70,3 +70,26 @@ Content-Type: application/json
 {
   "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 }
+
+
+###未带 token 访问受保护接口
+GET http://localhost:8080/api/todos
+
+### 带token访问
+GET http://localhost:8080/api/todos
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMTM1MTA4LCJleHAiOjE3OTAxMzg3MDh9.mZZG1QJDYDC_hgZRbmyRrXRYXXde-wUeqypslr9ciYreeGRru2nOi54-3GBMCChW
+
+###缓存失效测试
+### 缓存失效测试：更新 Todo
+PUT http://localhost:8080/api/todos/2
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMTM1MTA4LCJleHAiOjE3OTAxMzg3MDh9.mZZG1QJDYDC_hgZRbmyRrXRYXXde-wUeqypslr9ciYreeGRru2nOi54-3GBMCChW
+Content-Type: application/json
+
+{
+  "title": "学习缓存测试",
+  "completed": true
+}
+
+### 再查一次，验证缓存是否更新
+GET http://localhost:8080/api/todos/2
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMTM1MTA4LCJleHAiOjE3OTAxMzg3MDh9.mZZG1QJDYDC_hgZRbmyRrXRYXXde-wUeqypslr9ciYreeGRru2nOi54-3GBMCChW

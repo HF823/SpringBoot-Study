@@ -1,14 +1,15 @@
 package com.example.demo.todo;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "todo", indexes = {
         @Index(name = "idx_completed", columnList = "completed")
 })
-public class Todo {
+public class Todo implements java.io.Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
