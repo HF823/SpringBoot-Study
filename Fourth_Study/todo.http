@@ -93,3 +93,89 @@ Content-Type: application/json
 ### 再查一次，验证缓存是否更新
 GET http://localhost:8080/api/todos/2
 Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMTM1MTA4LCJleHAiOjE3OTAxMzg3MDh9.mZZG1QJDYDC_hgZRbmyRrXRYXXde-wUeqypslr9ciYreeGRru2nOi54-3GBMCChW
+
+### 创建项目
+POST http://localhost:8080/api/projects
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwMTA5LCJleHAiOjE3OTAyMzM3MDl9.cy1H4mosJNw1pss9mXeuRcK0GRWrCd3hsj7ft4Mlq_lxPadmhhFY5QIQXLnAEZ6x
+Content-Type: application/json
+
+{
+  "name": "学习项目",
+  "description": "第7周综合项目"
+}
+
+### 查单个
+GET http://localhost:8080/api/projects/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwMTA5LCJleHAiOjE3OTAyMzM3MDl9.cy1H4mosJNw1pss9mXeuRcK0GRWrCd3hsj7ft4Mlq_lxPadmhhFY5QIQXLnAEZ6x
+
+### 改
+PUT http://localhost:8080/api/projects/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwMTA5LCJleHAiOjE3OTAyMzM3MDl9.cy1H4mosJNw1pss9mXeuRcK0GRWrCd3hsj7ft4Mlq_lxPadmhhFY5QIQXLnAEZ6x
+Content-Type: application/json
+
+{
+  "name": "改个名字",
+  "description": "更新后的描述"
+}
+
+### 删
+DELETE http://localhost:8080/api/projects/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwMTA5LCJleHAiOjE3OTAyMzM3MDl9.cy1H4mosJNw1pss9mXeuRcK0GRWrCd3hsj7ft4Mlq_lxPadmhhFY5QIQXLnAEZ6x
+
+### 2. 创建项目（拿到 projectId，假设为 1）
+POST http://localhost:8080/api/projects
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwNDIzLCJleHAiOjE3OTAyMzQwMjN9.acMTroKmciJjbJYYMcHCkaBSWoFmEjCsdJIc--r-ujQrUjayq2hjkpkLfPm0Q7jt
+Content-Type: application/json
+
+{
+  "name": "项目A",
+  "description": "测试任务"
+}
+
+### 3. 在项目 1 下创建任务
+POST http://localhost:8080/api/projects/2/tasks
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwNDIzLCJleHAiOjE3OTAyMzQwMjN9.acMTroKmciJjbJYYMcHCkaBSWoFmEjCsdJIc--r-ujQrUjayq2hjkpkLfPm0Q7jt
+Content-Type: application/json
+
+{
+  "title": "写任务模块",
+  "description": "第7周任务模块",
+  "priority": 4,
+  "dueDate": "2026-10-01T10:00:00"
+}
+
+### 4. 查任务列表
+GET http://localhost:8080/api/projects/2/tasks
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwNDIzLCJleHAiOjE3OTAyMzQwMjN9.acMTroKmciJjbJYYMcHCkaBSWoFmEjCsdJIc--r-ujQrUjayq2hjkpkLfPm0Q7jt
+
+### 5. 按状态过滤
+GET http://localhost:8080/api/projects/2/tasks?status=TODO
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwNDIzLCJleHAiOjE3OTAyMzQwMjN9.acMTroKmciJjbJYYMcHCkaBSWoFmEjCsdJIc--r-ujQrUjayq2hjkpkLfPm0Q7jt
+
+### 6. 关键词搜索
+GET http://localhost:8080/api/projects/2/tasks?keyword=写
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwNDIzLCJleHAiOjE3OTAyMzQwMjN9.acMTroKmciJjbJYYMcHCkaBSWoFmEjCsdJIc--r-ujQrUjayq2hjkpkLfPm0Q7jt
+
+### 7. 查单个
+GET http://localhost:8080/api/tasks/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwNDIzLCJleHAiOjE3OTAyMzQwMjN9.acMTroKmciJjbJYYMcHCkaBSWoFmEjCsdJIc--r-ujQrUjayq2hjkpkLfPm0Q7jt
+
+### 8. 更新任务
+PUT http://localhost:8080/api/tasks/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwNDIzLCJleHAiOjE3OTAyMzQwMjN9.acMTroKmciJjbJYYMcHCkaBSWoFmEjCsdJIc--r-ujQrUjayq2hjkpkLfPm0Q7jt
+Content-Type: application/json
+
+{
+  "title": "写任务模块（已更新）",
+  "description": "更新",
+  "status": "DOING",
+  "priority": 5
+}
+
+### 9. 切换状态
+PATCH http://localhost:8080/api/tasks/1/toggle
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwNDIzLCJleHAiOjE3OTAyMzQwMjN9.acMTroKmciJjbJYYMcHCkaBSWoFmEjCsdJIc--r-ujQrUjayq2hjkpkLfPm0Q7jt
+
+### 10. 删除
+DELETE http://localhost:8080/api/tasks/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwNDIzLCJleHAiOjE3OTAyMzQwMjN9.acMTroKmciJjbJYYMcHCkaBSWoFmEjCsdJIc--r-ujQrUjayq2hjkpkLfPm0Q7jt
