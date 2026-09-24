@@ -39,6 +39,7 @@ public class AuthController {
         return ApiResponse.ok(new RegisterResponse(user.getId(), user.getUsername()));
     }
 
+
     /** 登录 */
     @PostMapping("/login")
     public ApiResponse<LoginResponse> login(@RequestBody LoginRequest request) {

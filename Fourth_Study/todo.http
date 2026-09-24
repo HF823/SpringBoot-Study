@@ -179,3 +179,20 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSI
 ### 10. 删除
 DELETE http://localhost:8080/api/tasks/1
 Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMwNDIzLCJleHAiOjE3OTAyMzQwMjN9.acMTroKmciJjbJYYMcHCkaBSWoFmEjCsdJIc--r-ujQrUjayq2hjkpkLfPm0Q7jt
+
+###
+GET http://localhost:8080/api/projects
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMzMzcyLCJleHAiOjE3OTAyMzY5NzJ9.v4bJNA9dR2SRXDdKr1ioRsEDIcr8hptSZBqUHys0uOikLXNxrWAYUDI8mHjgj3Pt
+
+###
+GET http://localhost:8080/api/projects?page=-1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoZjEyMyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzkwMjMzNzU3LCJleHAiOjE3OTAyMzczNTd9.ZzeaRfVhYSe-lAjJjn-sTZ36Y3jLo9_FkB0-IoiLM0FTu-cHlEICtkQlfRQY2YKF
+
+###
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "charlie",
+  "password": "123456"
+}

@@ -2,6 +2,7 @@ package com.example.demo.task;
 
 import com.example.demo.common.BusinessException;
 import com.example.demo.common.ErrorCode;
+import com.example.demo.common.PageResult;
 import com.example.demo.project.Project;
 import com.example.demo.project.ProjectRepository;
 import com.example.demo.user.User;
@@ -52,14 +53,15 @@ public class TaskService {
     }
 
     /** 任务列表：分页 + 状态过滤 + 关键词搜索 */
-    public Page<TaskResponse> listTasks(String username, Long projectId,
-                                        TaskStatus status, String keyword,
-                                        int page, int size) {
-        ownProject(projectId, username);   // ← 先校验项目归属
+    public PageResult<TaskResponse> listTasks(String username, Long projectId,
+                                              TaskStatus status, String keyword,
+                                              int page, int size) {
+        ownProject(projectId, username);
         if (size > 100) size = 100;
         PageRequest pageable = PageRequest.of(page, size);
-        return taskRepository.search(projectId, status, keyword, pageable)
-                .map(TaskResponse::from);
+        return PageResult.of(
+                taskRepository.search(projectId, status, keyword, pageable),
+                TaskResponse::from);
     }
 
     /** 查单个（带归属校验） */

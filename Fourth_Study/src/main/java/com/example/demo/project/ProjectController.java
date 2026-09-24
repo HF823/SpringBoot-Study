@@ -1,11 +1,18 @@
 package com.example.demo.project;
 
 import com.example.demo.common.ApiResponse;
+import com.example.demo.common.PageResult;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.validation.annotation.Validated;
+
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+
+@Validated
 @RestController
 @RequestMapping("/api/projects")
 public class ProjectController {
@@ -17,10 +24,11 @@ public class ProjectController {
     }
 
     @GetMapping
-    public ApiResponse<Page<ProjectResponse>> list(
+    public ApiResponse<PageResult<ProjectResponse>> list(
             @AuthenticationPrincipal String username,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
+            @RequestParam(defaultValue = "0") @Min(value = 0, message = "page 不能小于 0") int page,
+            @RequestParam(defaultValue = "10") @Min(value = 1, message = "size 最小 1")
+            @Max(value = 100, message = "size 最大 100") int size) {
         return ApiResponse.ok(projectService.listMyProjects(username, page, size));
     }
 

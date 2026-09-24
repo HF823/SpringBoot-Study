@@ -1,5 +1,5 @@
 package com.example.demo.project;
-
+import com.example.demo.common.PageResult;
 import com.example.demo.common.BusinessException;
 import com.example.demo.common.ErrorCode;
 import com.example.demo.user.User;
@@ -31,13 +31,14 @@ public class ProjectService {
     }
 
     /** 返回 DTO 分页 */
-    public Page<ProjectResponse> listMyProjects(String username, int page, int size) {
+    public PageResult<ProjectResponse> listMyProjects(String username, int page, int size) {
         if (size > 100) size = 100;
         Long ownerId = currentUserId(username);
         PageRequest pageable = PageRequest.of(page, size,
                 Sort.by(Sort.Direction.DESC, "id"));
-        return projectRepository.findByOwnerId(ownerId, pageable)
-                .map(ProjectResponse::from);      // ← 关键：实体转 DTO
+        return PageResult.of(
+                projectRepository.findByOwnerId(ownerId, pageable),
+                ProjectResponse::from);
     }
 
     /** 返回 DTO */

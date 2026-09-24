@@ -1,11 +1,16 @@
 package com.example.demo.task;
 
 import com.example.demo.common.ApiResponse;
+import com.example.demo.common.PageResult;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+@Validated
 @RestController
 @RequestMapping("/api")
 public class TaskController {
@@ -18,17 +23,19 @@ public class TaskController {
 
     /** 某项目下的任务列表 */
     @GetMapping("/projects/{projectId}/tasks")
-    public ApiResponse<Page<TaskResponse>> list(
+    public ApiResponse<PageResult<TaskResponse>> list(
             @AuthenticationPrincipal String username,
             @PathVariable Long projectId,
             @RequestParam(required = false) TaskStatus status,
             @RequestParam(required = false) String keyword,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
+            @RequestParam(defaultValue = "0")
+            @Min(value = 0, message = "page 不能小于 0") int page,
+            @RequestParam(defaultValue = "10")
+            @Min(value = 1, message = "size 最小为 1")
+            @Max(value = 100, message = "size 最大为 100") int size) {
         return ApiResponse.ok(taskService.listTasks(
                 username, projectId, status, keyword, page, size));
     }
-
     /** 某项目下新建任务 */
     @PostMapping("/projects/{projectId}/tasks")
     public ApiResponse<TaskResponse> create(
